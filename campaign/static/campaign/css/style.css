@@ -1,0 +1,3110 @@
+/* =========================================
+   SIDDHARTH FOR SECRETARY GENERAL
+   MU20 OPPORTUNITY SUMMIT 2026
+   CINEMATIC VIOLET-BLUE THEME
+   ========================================= */
+
+:root {
+  --bg: #080910;
+  --cream: #f7f4f2;
+  --muted: #b8b6c8;
+  --violet: #a994ff;
+  --purple: #7955e8;
+  --blue: #4e83ff;
+  --cyan: #58d9ee;
+
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --smooth: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background: var(--bg);
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--bg);
+  color: var(--cream);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* =========================================
+   BACKGROUND
+   ========================================= */
+
+.landing {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+  min-height: 100svh;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      ellipse at 88% 13%,
+      rgba(48, 68, 170, 0.34),
+      transparent 52%
+    ),
+    radial-gradient(
+      ellipse at 18% 82%,
+      rgba(93, 48, 151, 0.18),
+      transparent 44%
+    ),
+    linear-gradient(125deg, #080910 0%, #0b0b17 52%, #10132a 100%);
+}
+
+.landing::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  opacity: 0.12;
+
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.92' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.24'/%3E%3C/svg%3E");
+
+  mix-blend-mode: soft-light;
+}
+
+/* =========================================
+   HERO LAYOUT
+   ========================================= */
+
+.hero {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+
+  align-items: center;
+  gap: clamp(34px, 6vw, 90px);
+
+  width: min(1480px, 100%);
+  min-height: 100vh;
+  min-height: 100svh;
+  margin: 0 auto;
+
+  padding: clamp(35px, 6vh, 76px) clamp(30px, 7vw, 112px);
+}
+
+/* =========================================
+   PORTRAIT AREA
+   ========================================= */
+
+.portrait-side {
+  position: relative;
+  isolation: isolate;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-width: 0;
+  height: min(75svh, 700px);
+  min-height: 430px;
+
+  overflow: visible;
+
+  opacity: 1;
+  transform: translateX(0);
+  filter: blur(0);
+
+  transition:
+    opacity 650ms ease,
+    transform 800ms var(--smooth),
+    filter 600ms ease;
+}
+
+/* Decorative glow */
+
+.portrait-glow {
+  position: absolute;
+  z-index: 0;
+
+  width: 95%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(105, 78, 212, 0.22) 0%,
+    rgba(54, 95, 204, 0.12) 36%,
+    transparent 72%
+  );
+
+  filter: blur(18px);
+
+  transition:
+    opacity 550ms ease,
+    transform 750ms var(--smooth);
+}
+
+/* Decorative circles */
+
+.portrait-ring {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+
+  width: 84%;
+  aspect-ratio: 1;
+
+  border: 1px solid rgba(145, 129, 255, 0.28);
+  border-radius: 50%;
+
+  transform: translate(-50%, -50%);
+
+  transition:
+    opacity 550ms ease,
+    transform 750ms var(--smooth);
+}
+
+.ring-one {
+  width: 84%;
+  animation: ring-breathe 7s ease-in-out infinite;
+}
+
+.ring-two {
+  width: 67%;
+  border-color: rgba(92, 133, 255, 0.25);
+  animation: ring-breathe 7s ease-in-out 1.2s infinite;
+}
+
+/* Your photo */
+
+.portrait-photo {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  overflow: visible;
+  pointer-events: none;
+
+  transition:
+    opacity 450ms ease,
+    transform 650ms var(--smooth),
+    filter 450ms ease;
+}
+
+.portrait-photo img {
+  display: block;
+
+  width: auto;
+  height: 100%;
+  max-width: 112%;
+
+  object-fit: contain;
+  object-position: center bottom;
+
+  filter: drop-shadow(0 16px 28px rgba(0, 0, 0, 0.28))
+    drop-shadow(0 0 18px rgba(91, 91, 220, 0.09));
+
+  transform-origin: center bottom;
+  animation: portrait-arrive 1.2s var(--smooth) both;
+}
+
+/* Portrait labels */
+
+.portrait-tag {
+  position: absolute;
+  z-index: 3;
+  bottom: 5px;
+  left: 0;
+
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  color: #b7a8ff;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+
+  transition: opacity 250ms ease;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  flex: 0 0 7px;
+  border-radius: 50%;
+
+  background: var(--violet);
+  box-shadow: 0 0 13px rgba(169, 148, 255, 0.65);
+}
+
+.portrait-index {
+  position: absolute;
+  z-index: 3;
+  right: 0;
+  bottom: 5px;
+
+  color: #c1bdd3;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+
+  transition: opacity 250ms ease;
+}
+
+/* =========================================
+   PORTRAIT DISAPPEAR ANIMATION
+   Keep body.reel-mode for the existing JS
+   ========================================= */
+
+body.reel-mode .portrait-photo,
+body.reel-mode .portrait-glow,
+body.reel-mode .portrait-ring,
+body.reel-mode .portrait-tag,
+body.reel-mode .portrait-index {
+  opacity: 0;
+  filter: blur(8px);
+  transform: scale(0.94);
+  pointer-events: none;
+}
+
+/* =========================================
+   RIGHT-HAND CAMPAIGN CONTENT
+   ========================================= */
+
+.hero-content {
+  position: relative;
+  z-index: 4;
+
+  width: 100%;
+  min-width: 0;
+  max-width: 780px;
+
+  opacity: 1;
+  transform: translateY(0);
+
+  animation: content-arrive 950ms var(--smooth) both;
+}
+
+.main-heading {
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
+  color: var(--cream);
+  /* Smaller desktop cap prevents "Secretary General." from being clipped. */
+  font-size: clamp(42px, 4.15vw, 68px);
+  font-weight: 900;
+  line-height: 0.99;
+  letter-spacing: -0.065em;
+  overflow: visible;
+}
+
+.heading-line {
+  display: block;
+  white-space: nowrap;
+}
+
+.gradient-text {
+  color: transparent;
+
+  background-image: linear-gradient(
+    105deg,
+    #c4b4ff 0%,
+    #9b80ff 34%,
+    #7767ef 62%,
+    #568cff 100%
+  );
+
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.main-subheading {
+  width: fit-content;
+  max-width: 100%;
+  margin: 18px 0 0;
+
+  color: #b9d1ff;
+  font-size: clamp(15px, 1.35vw, 20px);
+  font-weight: 700;
+  line-height: 1.45;
+  letter-spacing: -0.025em;
+}
+
+/* =========================================
+   3D S KEY
+   ========================================= */
+
+.key-area {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: clamp(28px, 3.1vh, 42px);
+}
+
+.keyboard-key {
+  position: relative;
+  isolation: isolate;
+
+  display: grid;
+  place-items: center;
+
+  width: clamp(112px, 9vw, 146px);
+  aspect-ratio: 1;
+  padding: 0;
+
+  border: 1px solid rgba(226, 219, 255, 0.86);
+  border-radius: 24px;
+
+  color: #0b0b18;
+
+  background: linear-gradient(
+    145deg,
+    #c9baff 0%,
+    #9675ff 36%,
+    #7455e2 68%,
+    #374bb2 100%
+  );
+
+  box-shadow:
+    inset 0 2px 2px rgba(255, 255, 255, 0.72),
+    inset 0 -5px 8px rgba(19, 15, 69, 0.32),
+    0 8px 0 #30265e,
+    0 11px 0 #17162b,
+    0 20px 35px rgba(1, 2, 10, 0.42),
+    0 0 30px rgba(115, 85, 232, 0.15);
+
+  cursor: pointer;
+  user-select: none;
+
+  transition:
+    transform 140ms ease,
+    box-shadow 140ms ease,
+    filter 250ms ease;
+}
+
+.keyboard-key::before {
+  position: absolute;
+  z-index: -1;
+  inset: -8px;
+
+  content: "";
+  border: 1px solid rgba(156, 139, 255, 0.6);
+  border-radius: 29px;
+
+  opacity: 0;
+  transform: scale(0.95);
+
+  transition:
+    opacity 250ms ease,
+    transform 250ms ease;
+}
+
+.keyboard-key:hover {
+  filter: brightness(1.08);
+  transform: translateY(-3px);
+
+  box-shadow:
+    inset 0 2px 2px rgba(255, 255, 255, 0.8),
+    inset 0 -5px 8px rgba(19, 15, 69, 0.32),
+    0 10px 0 #30265e,
+    0 13px 0 #17162b,
+    0 25px 42px rgba(1, 2, 10, 0.48),
+    0 0 38px rgba(115, 85, 232, 0.24);
+}
+
+.keyboard-key:hover::before,
+.keyboard-key:focus-visible::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.keyboard-key:focus-visible {
+  outline: 2px solid #c6d9ff;
+  outline-offset: 12px;
+}
+
+.keyboard-key:active,
+.keyboard-key.is-pressed {
+  transform: translateY(7px);
+
+  box-shadow:
+    inset 0 3px 8px rgba(12, 10, 40, 0.35),
+    0 2px 0 #30265e,
+    0 4px 0 #17162b,
+    0 10px 20px rgba(1, 2, 10, 0.32);
+}
+
+.key-letter {
+  display: block;
+  font-size: clamp(57px, 5.2vw, 83px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.08em;
+  transform: translateX(-2px);
+}
+
+.key-symbol {
+  position: absolute;
+  top: 15px;
+  right: 16px;
+
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 19px;
+  font-weight: 800;
+}
+
+/* Key instructions */
+
+.key-message {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  margin-top: 35px;
+
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+.key-message p {
+  margin: 0;
+}
+
+.key-message strong {
+  color: #f7f4ff;
+  font-weight: 800;
+}
+
+.accent-text {
+  color: #b7a4ff;
+  font-weight: 800;
+}
+
+.keyboard-hint {
+  margin: 19px 0 0;
+
+  color: #a7a4bd;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.17em;
+  line-height: 1.8;
+}
+
+kbd {
+  display: inline-grid;
+  place-items: center;
+
+  min-width: 20px;
+  height: 20px;
+  margin-left: 5px;
+  padding: 0 5px;
+
+  border: 1px solid rgba(173, 154, 255, 0.62);
+  border-radius: 4px;
+
+  color: #c8baff;
+  background: rgba(117, 86, 230, 0.12);
+
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+/* =========================================
+   REEL STAGE
+   IMPORTANT:
+   This stage is INSIDE .portrait-side.
+   It must not cover the whole page.
+   ========================================= */
+
+.portrait-side .reel-stage {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+
+  display: grid;
+  place-items: center;
+
+  background: transparent !important;
+  background-color: transparent !important;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition:
+    opacity 500ms ease,
+    visibility 0s linear 500ms;
+}
+
+.portrait-side .reel-stage.is-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+
+  transition:
+    opacity 500ms ease,
+    visibility 0s;
+}
+
+/* =========================================
+   REEL AREA
+   Moderate size, horizontal 16:9
+   ========================================= */
+
+.portrait-side .reel-content,
+.portrait-side .reel-frame {
+  position: absolute;
+
+  /* Both elements use precisely the same box */
+  top: 50%;
+  left: 50%;
+
+  width: 138%;
+  /* 1.5x the original 92% frame width */
+  aspect-ratio: 16 / 9;
+  height: auto;
+
+  margin: 0;
+  padding: 0;
+
+  transform: translate(calc(-50% - 80px), -50%);
+  box-sizing: border-box;
+}
+
+/* Transparent area reserved for your future video */
+
+.portrait-side .reel-content {
+  z-index: 1;
+
+  overflow: visible;
+
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+
+  opacity: 0;
+  transition: opacity 500ms ease 120ms;
+}
+
+.portrait-side .reel-stage.is-active .reel-content {
+  opacity: 1;
+}
+
+/* Future video */
+
+.reel-content video,
+.reel-content iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  object-fit: contain;
+}
+
+/* Corner overlay */
+
+.portrait-side .reel-frame {
+  z-index: 2;
+
+  overflow: visible;
+  pointer-events: none;
+
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+
+  opacity: 1;
+}
+
+/* =========================================
+   TWO SEPARATE L-SHAPED CORNERS
+   ========================================= */
+
+.frame-corner {
+  position: absolute;
+
+  width: clamp(34px, 3.5vw, 52px);
+  height: clamp(34px, 3.5vw, 52px);
+
+  opacity: 0;
+
+  filter: drop-shadow(0 0 8px rgba(78, 131, 255, 0.2));
+
+  transition: opacity 450ms ease 100ms;
+}
+
+.frame-corner::before,
+.frame-corner::after {
+  position: absolute;
+  display: block;
+  content: "";
+
+  background: linear-gradient(135deg, #a994ff 0%, #4e83ff 58%, #58d9ee 100%);
+}
+
+/* Top-left L */
+
+.corner-top-left {
+  top: 0;
+  left: 0;
+}
+
+.corner-top-left::before {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+}
+
+.corner-top-left::after {
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 100%;
+}
+
+/* Bottom-right L */
+
+.corner-bottom-right {
+  right: 0;
+  bottom: 0;
+}
+
+.corner-bottom-right::before {
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+}
+
+.corner-bottom-right::after {
+  right: 0;
+  bottom: 0;
+  width: 2px;
+  height: 100%;
+}
+
+/* Reveal both corners together */
+
+.portrait-side .reel-stage.is-active .frame-corner {
+  opacity: 1;
+}
+
+/* =========================================
+   DESKTOP AND LAPTOPS
+   Keep frame within the original portrait area
+   ========================================= */
+
+@media (min-width: 1001px) {
+  .hero {
+    grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+
+    gap: clamp(34px, 6vw, 90px);
+  }
+
+  .portrait-side {
+    width: 100%;
+    height: min(75svh, 700px);
+    min-height: 430px;
+  }
+
+  .portrait-side .reel-content,
+  .portrait-side .reel-frame {
+    width: 138%;
+    /* 1.5x the original 92% frame width */
+    aspect-ratio: 16 / 9;
+    height: auto;
+  }
+
+  .frame-corner {
+    width: 42px;
+    height: 42px;
+  }
+}
+
+/* =========================================
+   TABLETS
+   ========================================= */
+
+@media (min-width: 701px) and (max-width: 1000px) {
+  .hero {
+    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+
+    gap: 35px;
+    padding-right: 5vw;
+    padding-left: 5vw;
+  }
+
+  .portrait-side {
+    width: 100%;
+    height: min(70svh, 620px);
+    min-height: 380px;
+  }
+
+  .portrait-side .reel-content,
+  .portrait-side .reel-frame {
+    width: 141%;
+    /* 1.5x the original 94% frame width */
+    aspect-ratio: 16 / 9;
+    height: auto;
+  }
+
+  .frame-corner {
+    width: 34px;
+    height: 34px;
+  }
+
+  .main-heading {
+    font-size: clamp(38px, 5vw, 54px);
+  }
+}
+
+/* =========================================
+   MOBILE
+   Preserve stacked layout
+   ========================================= */
+
+@media (max-width: 700px) {
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    gap: 12px;
+
+    min-height: 100svh;
+    padding: 30px 24px 38px;
+  }
+
+  .portrait-side {
+    order: 1;
+    flex: 0 0 auto;
+
+    width: 100%;
+    height: min(43svh, 390px);
+    min-height: 245px;
+    max-height: 390px;
+  }
+
+  .portrait-photo img {
+    max-width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center bottom;
+  }
+
+  .portrait-ring {
+    width: 76%;
+  }
+
+  .ring-two {
+    width: 61%;
+  }
+
+  .portrait-tag,
+  .portrait-index {
+    bottom: -2px;
+    font-size: 8px;
+  }
+
+  .hero-content {
+    order: 2;
+    width: 100%;
+    max-width: none;
+    padding-top: 12px;
+  }
+
+  .main-heading {
+    font-size: clamp(37px, 8.3vw, 58px);
+    line-height: 1.02;
+    letter-spacing: -0.07em;
+  }
+
+  .main-subheading {
+    margin-top: 12px;
+    font-size: 14px;
+  }
+
+  .key-area {
+    margin-top: 24px;
+  }
+
+  .keyboard-key {
+    width: 88px;
+    border-radius: 19px;
+  }
+
+  .key-letter {
+    font-size: 54px;
+  }
+
+  .key-symbol {
+    top: 10px;
+    right: 12px;
+    font-size: 15px;
+  }
+
+  .key-message {
+    gap: 6px;
+    margin-top: 24px;
+    font-size: 14px;
+  }
+
+  .keyboard-hint {
+    margin-top: 14px;
+    font-size: 8px;
+  }
+
+  .portrait-side .reel-content,
+  .portrait-side .reel-frame {
+    width: 141%;
+    /* 1.5x the original 94% frame width */
+    aspect-ratio: 16 / 9;
+    height: auto;
+  }
+
+  .frame-corner {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+@media (max-width: 390px) {
+  .hero {
+    padding: 22px 19px 28px;
+  }
+
+  .portrait-side {
+    height: 32svh;
+    min-height: 205px;
+  }
+
+  .main-heading {
+    font-size: clamp(34px, 8.4vw, 42px);
+  }
+
+  .main-subheading {
+    font-size: 13px;
+  }
+
+  .keyboard-key {
+    width: 78px;
+    border-radius: 17px;
+  }
+
+  .key-letter {
+    font-size: 47px;
+  }
+
+  .key-message {
+    margin-top: 20px;
+    font-size: 13px;
+  }
+}
+
+/* =========================================
+   ANIMATIONS
+   ========================================= */
+
+@keyframes portrait-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes content-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ring-breathe {
+  0%,
+  100% {
+    opacity: 0.65;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+}
+
+/* =========================================
+   HEADING WIDTH FIX
+   Keep "Secretary General." fully visible
+   ========================================= */
+
+.hero-content {
+  min-width: 0;
+  max-width: 100%;
+  overflow: visible;
+}
+
+.main-heading {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  font-size: clamp(44px, 4.565vw, 74.8px);
+  letter-spacing: -0.065em;
+  overflow: visible;
+}
+
+.heading-line {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: visible;
+}
+
+/* Narrow desktop / laptop columns */
+@media (min-width: 1001px) and (max-width: 1500px) {
+  .main-heading {
+    font-size: clamp(44px, 4.29vw, 64.9px);
+    letter-spacing: -0.06em;
+  }
+}
+
+/* Tablets */
+@media (min-width: 701px) and (max-width: 1000px) {
+  .main-heading {
+    font-size: clamp(37.4px, 4.95vw, 49.5px);
+    letter-spacing: -0.055em;
+  }
+}
+
+/* Phones: allow the long title to wrap instead of clipping */
+@media (max-width: 700px) {
+  .main-heading {
+    font-size: clamp(37.4px, 8.8vw, 57.2px);
+    letter-spacing: -0.06em;
+    overflow-wrap: normal;
+  }
+
+  .heading-line {
+    white-space: normal;
+  }
+}
+
+/* =========================================
+   GLOBAL VISUAL SCALE: +10%
+   Keep the layout and reel-frame geometry intact.
+   ========================================= */
+
+@media (min-width: 701px) {
+  .portrait-photo img {
+    transform: scale(1.1);
+  }
+
+  .portrait-glow {
+    transform: scale(1.1);
+  }
+
+  .portrait-ring.ring-one {
+    width: 92.4%;
+  }
+
+  .portrait-ring.ring-two {
+    width: 73.7%;
+  }
+
+  .keyboard-key {
+    width: calc(clamp(112px, 9vw, 146px) * 1.1);
+  }
+
+  .key-letter {
+    font-size: calc(clamp(57px, 5.2vw, 83px) * 1.1);
+  }
+
+  .main-subheading {
+    font-size: calc(clamp(15px, 1.35vw, 20px) * 1.1);
+  }
+
+  .key-message {
+    font-size: 17.6px;
+  }
+
+  .keyboard-hint {
+    font-size: 9.9px;
+  }
+}
+
+@media (max-width: 700px) {
+  .portrait-photo img {
+    transform: scale(1.05);
+  }
+
+  .keyboard-key {
+    width: 96.8px;
+  }
+
+  .key-letter {
+    font-size: 59.4px;
+  }
+
+  .main-subheading {
+    font-size: 15.4px;
+  }
+
+  .key-message {
+    font-size: 15.4px;
+  }
+}
+
+/* FIX: Prevent "Secretary General" from being clipped */
+.main-heading {
+  width: 100%;
+  max-width: 100%;
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+.heading-line {
+  display: block;
+  max-width: 100%;
+  overflow: visible;
+  letter-spacing: -0.045em;
+}
+
+.gradient-text {
+  white-space: normal;
+  overflow-wrap: normal;
+  word-break: normal;
+  padding-right: 0.08em;
+}
+
+.hero-content {
+  min-width: 0;
+  overflow: visible;
+}
+
+/* Give the heading a little more room on desktop */
+@media (min-width: 701px) {
+  .hero-content {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .main-heading {
+    font-size: clamp(38px, 4.1vw, 66px);
+  }
+}
+
+/* Keep the heading readable on smaller screens */
+@media (max-width: 700px) {
+  .main-heading {
+    font-size: clamp(34px, 8vw, 52px);
+  }
+}
+
+/* =========================================
+   TIMELINE REVEAL — ADDITIONAL STYLES
+   Original campaign styles remain unchanged.
+   ========================================= */
+
+/* Show one S-key message at a time. */
+
+.key-message-line {
+  display: block;
+  margin: 0;
+}
+
+.key-message-line + .key-message-line {
+  margin-top: 8px;
+}
+
+.key-message-line.is-active {
+  display: block;
+  animation: campaign-message-reveal 350ms ease both;
+}
+
+@keyframes campaign-message-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Keep the original reel stage transparent and inside portrait-side. */
+
+.portrait-side .reel-stage {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* =========================================
+   TIMELINE OVERLAY
+   ========================================= */
+
+.timeline-overlay {
+  position: fixed;
+  z-index: 20;
+  top: 0;
+  right: 0;
+  bottom: 0;
+
+  width: min(46vw, 760px);
+  min-width: 320px;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateX(100%);
+
+  transition:
+    transform 850ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    opacity 500ms ease,
+    visibility 0s linear 850ms;
+}
+
+.timeline-overlay.is-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(0);
+
+  transition:
+    transform 850ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    opacity 500ms ease,
+    visibility 0s;
+}
+
+/* Translucent glass: the original gradient remains visible beneath it. */
+
+.timeline-glass {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  background: rgba(5, 6, 16, 0.82);
+
+  backdrop-filter: blur(16px) saturate(115%);
+  -webkit-backdrop-filter: blur(16px) saturate(115%);
+
+  border: 1px solid rgba(169, 148, 255, 0.24);
+  border-right: 0;
+  border-radius: 16px 0 0 16px;
+
+  box-shadow:
+    -18px 0 55px rgba(0, 0, 0, 0.2),
+    inset 1px 0 0 rgba(255, 255, 255, 0.06);
+}
+
+/* Timeline header and footer */
+
+.timeline-header,
+.timeline-footer {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  padding: 12px 15px;
+
+  background: rgba(4, 5, 12, 0.72);
+  color: rgba(247, 244, 255, 0.84);
+
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+}
+
+.timeline-header {
+  border-bottom: 1px solid rgba(169, 148, 255, 0.18);
+}
+
+.timeline-footer {
+  border-top: 1px solid rgba(169, 148, 255, 0.15);
+  color: rgba(184, 182, 200, 0.75);
+  font-size: 8px;
+}
+
+.timeline-heading-group {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.timeline-status-dot {
+  width: 7px;
+  height: 7px;
+  flex: 0 0 7px;
+  border-radius: 50%;
+
+  background: var(--cyan);
+  box-shadow: 0 0 12px rgba(88, 217, 238, 0.7);
+}
+
+.timeline-subtitle {
+  color: rgba(184, 182, 200, 0.72);
+  text-align: right;
+}
+
+/* Vertical scrolling area */
+
+.timeline-scroll {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+
+  scrollbar-width: thin;
+  scrollbar-color: rgba(169, 148, 255, 0.7) transparent;
+}
+
+/* Preserve the complete image and its original aspect ratio. */
+
+.timeline-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: none;
+
+  margin: 0;
+  padding: 0;
+
+  background: transparent;
+  object-fit: contain;
+  object-position: top center;
+
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.timeline-scroll::-webkit-scrollbar {
+  width: 5px;
+}
+
+.timeline-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.timeline-scroll::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: linear-gradient(
+    180deg,
+    rgba(169, 148, 255, 0.8),
+    rgba(88, 217, 238, 0.7)
+  );
+}
+
+/* Transition overlay: a brief cinematic light sweep. */
+
+.transition-overlay {
+  position: fixed;
+  z-index: 30;
+  inset: 0;
+
+  pointer-events: none;
+  opacity: 0;
+
+  background: linear-gradient(
+    110deg,
+    rgba(121, 85, 232, 0.1),
+    rgba(78, 131, 255, 0.1),
+    rgba(88, 217, 238, 0.04),
+    transparent 75%
+  );
+}
+
+.transition-overlay.run {
+  animation: campaign-screen-wipe 650ms ease both;
+}
+
+@keyframes campaign-screen-wipe {
+  0% {
+    opacity: 0;
+    transform: translateX(-12%);
+  }
+
+  35% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(12%);
+  }
+}
+
+/* Responsive timeline sizing */
+
+@media (max-width: 1000px) {
+  .timeline-overlay {
+    width: 48vw;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .timeline-overlay {
+    width: 68vw;
+  }
+
+  .timeline-header,
+  .timeline-footer {
+    gap: 8px;
+    padding: 10px;
+    font-size: 8px;
+  }
+
+  .timeline-subtitle {
+    font-size: 7px;
+  }
+}
+
+@media (max-width: 390px) {
+  .timeline-overlay {
+    width: 76vw;
+  }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .timeline-overlay,
+  .key-message-line.is-active {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .transition-overlay.run {
+    animation: none !important;
+  }
+}
+
+/* Campaign reel video */
+.reel-content {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: transparent;
+}
+
+.reel-content video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: transparent;
+}
+
+#campaign-video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  background: transparent;
+}
+
+#campaign-video::-webkit-media-controls {
+  display: none !important;
+}
+
+/* Timeline image and playhead positioning */
+
+.timeline-canvas {
+  position: relative;
+  width: 100%;
+  line-height: 0;
+}
+
+.timeline-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Draggable timeline playhead */
+
+.timeline-playhead {
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  bottom: 0;
+  left: 45.45%;
+  width: 2px;
+
+  background: #ff4d67;
+  box-shadow: 0 0 8px rgba(255, 77, 103, 0.7);
+
+  cursor: ew-resize;
+  pointer-events: auto;
+  touch-action: none;
+  user-select: none;
+
+  transform: translateX(-50%);
+}
+
+/* Wider invisible hit area makes the thin line easier to grab. */
+.timeline-playhead::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 24px;
+  transform: translateX(-50%);
+  background: transparent;
+}
+
+.timeline-playhead.is-dragging {
+  background: #ffffff;
+  box-shadow: 0 0 12px rgba(255, 77, 103, 0.95);
+}
+
+.playhead-cap {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 50%;
+
+  width: 10px;
+  height: 10px;
+
+  background: #ff4d67;
+  border-radius: 2px;
+
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+/* Fade the campaign video in over 0.5 seconds */
+#campaign-video {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+#campaign-video.video-visible {
+  opacity: 1;
+}
+
+/* Make the timeline playhead feel interactive */
+#timeline-playhead {
+  cursor: grab;
+  touch-action: none;
+  transition:
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+#timeline-playhead:hover {
+  box-shadow: 0 0 16px rgba(130, 170, 255, 0.65);
+  transform: scale(1.12);
+}
+
+#timeline-playhead.is-dragging {
+  cursor: grabbing;
+  box-shadow: 0 0 22px rgba(150, 190, 255, 0.8);
+  transform: scale(1.15);
+}
+
+/* =====================================================
+   TIMELINE PLAYHEAD INTERACTION HINT
+   ===================================================== */
+
+.timeline-hand-hint {
+  position: absolute;
+  left: 35%;
+  bottom: 70px;
+
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+
+  z-index: 100;
+  pointer-events: none;
+
+  opacity: 1;
+  visibility: visible;
+
+  filter: drop-shadow(0 0 5px rgba(255, 40, 95, 0.8))
+    drop-shadow(0 0 12px rgba(255, 40, 95, 0.45));
+
+  transform: translateX(-50%);
+  animation: hand-drag-hint 1.2s ease-in-out infinite;
+
+  transition:
+    opacity 350ms ease,
+    visibility 350ms ease;
+}
+
+/* Subtle horizontal movement suggests dragging */
+@keyframes hand-drag-hint {
+  0%,
+  100% {
+    transform: translateX(-50%);
+  }
+
+  50% {
+    transform: translateX(calc(-50% + 12px));
+  }
+}
+
+/* Disappear after the first interaction */
+.timeline-hand-hint.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  animation: none;
+}
+
+/* Smaller icon on mobile screens */
+@media (max-width: 768px) {
+  .timeline-hand-hint {
+    width: 38px;
+    height: 38px;
+    bottom: 30px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .timeline-hand-hint {
+    animation: none;
+  }
+}
+
+/* First-play overlay */
+.reel-content {
+  position: relative;
+}
+
+.video-play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 20;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 76px;
+  height: 76px;
+  padding: 0;
+
+  color: #ff426f;
+  background: rgba(5, 6, 16, 0.72);
+  border: 1px solid rgba(255, 66, 111, 0.85);
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 18px rgba(255, 45, 100, 0.28),
+    inset 0 0 15px rgba(255, 45, 100, 0.08);
+
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  transition:
+    opacity 250ms ease,
+    background 200ms ease,
+    box-shadow 200ms ease,
+    transform 200ms ease;
+}
+
+.video-play-button:hover {
+  background: rgba(20, 7, 20, 0.92);
+  box-shadow:
+    0 0 28px rgba(255, 45, 100, 0.55),
+    inset 0 0 18px rgba(255, 45, 100, 0.12);
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+.video-play-icon {
+  font-size: 25px;
+  line-height: 1;
+  margin-left: 4px;
+  text-shadow: 0 0 12px rgba(255, 66, 111, 0.8);
+}
+
+.video-play-button.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+@media (max-width: 768px) {
+  .video-play-button {
+    width: 60px;
+    height: 60px;
+  }
+
+  .video-play-icon {
+    font-size: 20px;
+  }
+}
+
+/* =====================================================
+   HACKATHON CHALLENGE ARROW
+   ===================================================== */
+
+.hackathon-arrow-button {
+  position: fixed;
+  left: 50%;
+  bottom: 32px;
+  z-index: 200;
+
+  width: 58px;
+  height: 58px;
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #ff426f;
+  background: rgba(5, 6, 16, 0.78);
+  border: 1px solid rgba(255, 66, 111, 0.85);
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 18px rgba(255, 45, 100, 0.25),
+    inset 0 0 14px rgba(255, 45, 100, 0.06);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition:
+    opacity 250ms ease,
+    visibility 250ms ease,
+    transform 500ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 250ms ease;
+
+  transform: translateX(-100px);
+}
+
+.hackathon-arrow-button.is-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(0);
+}
+
+.hackathon-down-arrow {
+  display: block;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1;
+  -webkit-text-stroke: 1px #ff426f;
+
+  text-shadow: 0 0 12px rgba(255, 66, 111, 0.8);
+
+  animation: hackathon-arrow-bounce 1.3s ease-in-out infinite;
+}
+
+.hackathon-arrow-button:hover {
+  box-shadow:
+    0 0 28px rgba(255, 45, 100, 0.5),
+    inset 0 0 16px rgba(255, 45, 100, 0.1);
+}
+
+@keyframes hackathon-arrow-bounce {
+  0%,
+  100% {
+    transform: translateY(-1px);
+  }
+
+  50% {
+    transform: translateY(3px);
+  }
+}
+
+@media (max-width: 768px) {
+  .hackathon-arrow-button {
+    left: 20px;
+    bottom: 22px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .hackathon-down-arrow {
+    font-size: 30px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hackathon-down-arrow {
+    animation: none;
+  }
+}
+
+/* =========================================
+   SCROLL LOCK + NEXT SECTION
+   ========================================= */
+
+/* Hide the scrollbar without disabling programmatic scrolling. */
+html {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+  width: 0;
+}
+
+/* Lock page scrolling until the arrow is clicked. */
+html.campaign-scroll-locked,
+body.campaign-scroll-locked {
+  overflow: hidden !important;
+  height: 100%;
+}
+
+/* Temporary destination section. */
+
+/* =========================================
+   3D LAPTOP SECTION
+   ========================================= */
+
+.next-section {
+  position: relative;
+  width: 100%;
+  height: 300vh;
+  height: 300svh;
+  padding: 0;
+  overflow: clip;
+
+  background:
+    radial-gradient(
+      ellipse at 85% 75%,
+      rgba(78, 131, 255, 0.2),
+      transparent 48%
+    ),
+    radial-gradient(
+      ellipse at 15% 20%,
+      rgba(121, 85, 232, 0.16),
+      transparent 45%
+    ),
+    linear-gradient(125deg, #080910, #0b0b17 52%, #10132a);
+}
+
+.landing {
+  overflow: clip;
+}
+
+.laptop-stage {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+}
+
+#laptop-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  outline: none;
+}
+
+/* =========================================
+   SCROLL PROMPT
+   ========================================= */
+
+.scroll-hint {
+  position: absolute;
+  top: 18%;
+  left: 50%;
+  z-index: 5;
+  margin: 0;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: lowercase;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.8s ease;
+}
+
+body:not(.campaign-scroll-locked) .scroll-hint {
+  opacity: 1;
+  animation: scrollHintFloat 2s ease-in-out infinite;
+}
+
+@keyframes scrollHintFloat {
+  0%,
+  100% {
+    transform: translate(-50%, 0);
+  }
+
+  50% {
+    transform: translate(-50%, 5px);
+  }
+}
+
+/* =========================================
+   PROJECT TEXT
+   ========================================= */
+
+.laptop-info {
+  position: absolute;
+  top: 30%;
+  left: 42.5%;
+  z-index: 3;
+  width: min(500px, 45%);
+  transform: translateY(12px);
+  color: #fff;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease,
+    visibility 0.8s ease;
+}
+
+.laptop-info.is-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.laptop-info h2 {
+  margin: 0 0 14px;
+  font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+  line-height: 1.2;
+  font-weight: 500;
+  letter-spacing: -0.035em;
+}
+
+.laptop-info a {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.9rem;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 4px;
+  transition: color 0.25s ease;
+}
+
+.laptop-info a:hover {
+  color: #fff;
+}
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 700px) {
+  .next-section {
+    height: 200vh;
+    height: 200svh;
+  }
+
+  .scroll-hint {
+    top: 12%;
+  }
+
+  .laptop-info {
+    top: 16%;
+    left: 8%;
+    width: 84%;
+    text-align: left;
+  }
+
+  .laptop-info h2 {
+    font-size: 1.7rem;
+  }
+}
+
+/* Robotics Challenge text */
+.robot-info {
+  position: absolute;
+  top: 28%;
+  left: 19%;
+  z-index: 3;
+  width: min(590px, 42%);
+  color: #fff;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(14px);
+  pointer-events: none;
+
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease,
+    visibility 0.8s ease;
+}
+
+.robot-info.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.robot-info h2 {
+  margin: 0 0 16px;
+  font-size: clamp(1.6rem, 2.5vw, 2.5rem);
+  line-height: 1.2;
+  font-weight: 500;
+  letter-spacing: -0.035em;
+}
+
+.robot-info p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: clamp(0.85rem, 1.1vw, 1rem);
+  line-height: 1.6;
+}
+
+@media (max-width: 700px) {
+  .robot-info {
+    top: 18%;
+    left: 8%;
+    width: 84%;
+  }
+
+  .robot-info h2 {
+    font-size: 1.7rem;
+  }
+}
+
+/* =========================================
+   REEL SHOWCASE
+   ========================================= */
+
+.showcase-section {
+  position: relative;
+  isolation: isolate;
+  padding: clamp(80px, 10vw, 140px) clamp(20px, 7vw, 110px);
+  padding-bottom: 60px;
+  color: #f7f8ff;
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(91, 105, 220, 0.13),
+      transparent 55%
+    ),
+    linear-gradient(145deg, #090a13, #10142b 65%, #0b0d1b);
+}
+
+.showcase-heading {
+  max-width: 720px;
+  margin: 0 auto clamp(44px, 6vw, 76px);
+  text-align: center;
+}
+
+.showcase-eyebrow {
+  display: inline-block;
+  margin-bottom: 18px;
+  color: #a9b5ff;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+}
+
+.showcase-heading h2 {
+  margin: 0;
+  font-size: clamp(2.4rem, 5.5vw, 4.8rem);
+  font-weight: 500;
+  letter-spacing: -0.065em;
+  line-height: 1.05;
+}
+
+.showcase-heading h2 span {
+  color: #a7b3ff;
+}
+
+.showcase-heading > p {
+  max-width: 540px;
+  margin: 20px auto 0;
+  color: rgba(235, 238, 255, 0.62);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+/* Equal-width reel cards */
+.showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: clamp(24px, 4vw, 52px);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Complete card */
+.showcase-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid rgba(190, 200, 255, 0.15);
+  border-radius: 24px;
+  background: rgba(19, 23, 45, 0.82);
+  box-shadow: 0 20px 70px rgba(0, 0, 0, 0.2);
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.showcase-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(164, 178, 255, 0.4);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.3);
+}
+
+/* Vertical 9:16 reel */
+
+.showcase-video {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #080a12;
+  border-bottom: 1px solid rgba(190, 200, 255, 0.12);
+}
+
+.showcase-video video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #080a12;
+  outline: none;
+}
+
+/* Description stays inside the main card */
+.showcase-description {
+  padding: clamp(22px, 3vw, 32px);
+}
+
+.showcase-number {
+  display: block;
+  margin-bottom: 14px;
+  color: #aab6ff;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+}
+
+.showcase-description h3 {
+  margin: 0;
+  color: #f7f8ff;
+  font-size: clamp(1.35rem, 2.2vw, 1.8rem);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1.25;
+}
+
+.showcase-description p {
+  margin: 14px 0 0;
+  color: rgba(232, 235, 255, 0.65);
+  font-size: 0.93rem;
+  line-height: 1.8;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .showcase-section {
+    padding: 76px 20px;
+  }
+
+  .showcase-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+    max-width: 420px;
+  }
+
+  .showcase-card {
+    border-radius: 20px;
+  }
+
+  .showcase-video {
+    max-height: none;
+  }
+
+  .showcase-description {
+    padding: 24px;
+  }
+
+  .showcase-description h3 {
+    font-size: 1.55rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .showcase-card {
+    transition: none;
+  }
+
+  .showcase-card:hover {
+    transform: none;
+  }
+}
+
+.horizontal-scroll-hint {
+  position: fixed;
+  right: 60px;
+  top: 50%;
+  z-index: 999;
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateX(-10px);
+  transition:
+    opacity 0.5s ease,
+    visibility 0.5s ease;
+}
+
+.horizontal-scroll-hint.is-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  cursor: pointer;
+  animation: horizontalArrowFloat 1.2s ease-in-out infinite;
+}
+
+.horizontal-scroll-hint span {
+  display: block;
+  width: 15px;
+  height: 15px;
+  border-top: 2px solid #a7b3ff;
+  border-right: 2px solid #a7b3ff;
+  transform: rotate(45deg);
+}
+
+@keyframes horizontalArrowFloat {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 8px 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .horizontal-scroll-hint.is-visible {
+    animation: none;
+  }
+}
+
+/* =========================================
+   MOBILE TIMELINE — SLIDE UP FROM BOTTOM
+   ========================================= */
+
+@media (max-width: 700px) {
+  .timeline-overlay {
+    top: auto;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 78svh;
+    min-width: 0;
+    max-height: 780px;
+
+    transform: translateY(100%);
+
+    transition:
+      transform 700ms cubic-bezier(0.2, 0.8, 0.2, 1),
+      opacity 400ms ease,
+      visibility 0s linear 700ms;
+  }
+
+  .timeline-overlay.is-active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    transition:
+      transform 700ms cubic-bezier(0.2, 0.8, 0.2, 1),
+      opacity 400ms ease,
+      visibility 0s;
+  }
+
+  .timeline-glass {
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgba(169, 148, 255, 0.24);
+    border-bottom: 0;
+    border-radius: 20px 20px 0 0;
+
+    box-shadow:
+      0 -18px 55px rgba(0, 0, 0, 0.25),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+
+  .timeline-header,
+  .timeline-footer {
+    flex-shrink: 0;
+    gap: 8px;
+    padding: 12px 14px;
+    font-size: 9px;
+  }
+
+  .timeline-heading-group {
+    min-width: 0;
+  }
+
+  .timeline-subtitle {
+    font-size: 8px;
+    text-align: right;
+  }
+
+  .timeline-scroll {
+    flex: 1 1 auto;
+    min-height: 0;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    touch-action: pan-x pan-y;
+  }
+
+  .timeline-canvas {
+    min-width: 100%;
+  }
+
+  .timeline-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: none;
+  }
+
+  .timeline-playhead::before {
+    width: 32px;
+  }
+
+  #timeline-hand-hint {
+    max-width: 65px;
+  }
+}
+
+@media (max-width: 390px) {
+  .timeline-overlay {
+    height: 82svh;
+  }
+
+  .timeline-header,
+  .timeline-footer {
+    padding: 10px;
+    font-size: 8px;
+  }
+
+  .timeline-subtitle {
+    font-size: 7px;
+  }
+}
+
+@media (max-width: 700px) {
+  /* Half-height timeline panel */
+  .timeline-overlay {
+    top: auto;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 42svh;
+    max-height: 420px;
+    min-width: 0;
+
+    transform: translateY(100%);
+    transition:
+      transform 700ms cubic-bezier(0.2, 0.8, 0.2, 1),
+      opacity 400ms ease,
+      visibility 0s linear 700ms;
+  }
+
+  .timeline-overlay.is-active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition:
+      transform 700ms cubic-bezier(0.2, 0.8, 0.2, 1),
+      opacity 400ms ease,
+      visibility 0s;
+  }
+
+  .timeline-glass {
+    height: 100%;
+    border-radius: 18px 18px 0 0;
+    border-bottom: 0;
+  }
+
+  /* Enlarge the timeline graphic */
+  .timeline-scroll {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+
+  .timeline-canvas {
+    width: 100%;
+    min-width: 700px;
+    position: relative;
+    line-height: 0;
+  }
+
+  .timeline-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: none;
+  }
+
+  .timeline-header,
+  .timeline-footer {
+    flex-shrink: 0;
+    padding: 8px 10px;
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 390px) {
+  .timeline-overlay {
+    height: 42svh;
+  }
+
+  .timeline-canvas {
+    min-width: 700px;
+  }
+}
+
+/* MOBILE FIX — CENTER VIDEO AND KEEP BOTH L-CORNERS ALIGNED */
+
+@media (max-width: 700px) {
+  .portrait-side .reel-content,
+  .portrait-side .reel-frame {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    /* Remove the original 80px left shift */
+    transform: translate(-50%, -50%);
+  }
+
+  .portrait-side .reel-content {
+    overflow: hidden;
+  }
+
+  .portrait-side .reel-frame {
+    overflow: visible;
+    pointer-events: none;
+  }
+
+  .portrait-side .reel-content video,
+  .portrait-side .reel-content iframe,
+  .portrait-side #campaign-video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+  }
+}
+
+/* MOBILE — POSITION PROJECT TEXT ABOVE THE LAPTOP */
+
+@media (max-width: 700px) {
+  .laptop-info {
+    top: 16%;
+    left: 7%;
+    width: 86%;
+    max-width: none;
+    text-align: left;
+  }
+
+  .laptop-info h2 {
+    font-size: clamp(1.35rem, 5.5vw, 1.8rem);
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+
+  .laptop-info a {
+    font-size: 0.85rem;
+  }
+}
+
+/* DESKTOP RESTORE — keep mobile changes isolated */
+
+@media (min-width: 701px) {
+  .laptop-info {
+    top: 30%;
+    left: 42.5%;
+    width: min(500px, 45%);
+  }
+}
+
+@media (max-width: 700px) {
+  .laptop-info {
+    top: 12%;
+    left: 7%;
+    width: 86%;
+  }
+
+  .laptop-info h2 {
+    font-size: clamp(1.35rem, 5.5vw, 1.7rem);
+  }
+
+  .robot-info {
+    top: 12%;
+    left: 7%;
+    width: 86%;
+  }
+
+  .robot-info h2 {
+    font-size: clamp(1.35rem, 5.5vw, 1.7rem);
+  }
+}
+
+/* Hide the play button during playback, unless hovering */
+#video-play-button.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s ease;
+}
+
+#video-play-button.is-hidden.is-hover-revealed {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* =========================================
+   MU20 WRAPPED 2026
+   ========================================= */
+
+.wrapped-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 30px 5vw;
+  color: #fff;
+  background: #090910;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateX(100%);
+  transition:
+    transform 750ms cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 450ms ease,
+    visibility 0s linear 750ms;
+  overflow: auto;
+}
+
+.wrapped-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(0);
+  transition:
+    transform 750ms cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 450ms ease,
+    visibility 0s;
+}
+
+.wrapped-close {
+  position: absolute;
+  top: 22px;
+  right: 28px;
+  z-index: 5;
+  width: 46px;
+  height: 46px;
+  border: 1px solid #ffffff50;
+  border-radius: 50%;
+  color: white;
+  background: #ffffff12;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.wrapped-layout {
+  width: min(1120px, 100%);
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr minmax(250px, 370px);
+  align-items: center;
+  gap: clamp(35px, 8vw, 120px);
+}
+
+.wrapped-intro {
+  max-width: 520px;
+}
+
+.wrapped-kicker,
+.wrapped-footer,
+.story-eyebrow,
+.story-number,
+.story-tap {
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+}
+
+.wrapped-kicker {
+  color: #c3ff00;
+}
+
+.wrapped-intro h1 {
+  margin: 24px 0;
+  font-size: clamp(64px, 10vw, 140px);
+  line-height: 0.78;
+  letter-spacing: -0.09em;
+  font-weight: 1000;
+}
+
+.wrapped-intro h1 span {
+  color: #c3ff00;
+}
+
+.wrapped-intro p {
+  color: #b9b9c8;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.wrapped-start {
+  margin-top: 20px;
+  padding: 15px 20px;
+  border: 0;
+  border-radius: 999px;
+  color: #101010;
+  background: #c3ff00;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.wrapped-start span {
+  margin-left: 12px;
+}
+
+/* One single 9:16 story screen */
+.wrapped-phone {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  max-height: min(78svh, 760px);
+  justify-self: center;
+  overflow: hidden;
+  border-radius: 18px;
+  color: #101010;
+  background: #c3ff00;
+  cursor: pointer;
+  box-shadow: 0 25px 100px #0009;
+  isolation: isolate;
+}
+
+.wrapped-phone::before,
+.wrapped-phone::after {
+  position: absolute;
+  z-index: -1;
+  content: "";
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.wrapped-phone::before {
+  width: 120%;
+  aspect-ratio: 1;
+  right: -45%;
+  top: 22%;
+  background: #ff315b;
+  transition: transform 600ms ease;
+}
+
+.wrapped-phone::after {
+  width: 100%;
+  aspect-ratio: 1;
+  left: -48%;
+  bottom: -25%;
+  background: #8e6bff;
+  mix-blend-mode: multiply;
+}
+
+.wrapped-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  width: 0%;
+  height: 5px;
+  background: #101010;
+  transition: width 350ms ease;
+}
+
+.wrapped-story {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 28px 24px;
+  animation: wrapped-story-in 450ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.story-number {
+  align-self: flex-end;
+}
+
+.story-eyebrow {
+  margin-top: auto;
+  margin-bottom: 16px;
+}
+
+.wrapped-story h2 {
+  margin: 0;
+  font-size: clamp(35px, 4vw, 58px);
+  line-height: 0.94;
+  letter-spacing: -0.065em;
+  font-weight: 1000;
+  overflow-wrap: anywhere;
+}
+
+.wrapped-story p {
+  max-width: 95%;
+  font-size: 15px;
+  line-height: 1.45;
+  font-weight: 650;
+}
+
+.story-tap {
+  margin-top: 25px;
+  font-size: 9px;
+}
+
+.wrapped-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  color: #888899;
+  font-size: 9px;
+}
+
+@keyframes wrapped-story-in {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Different bold colour treatments for each story */
+
+.wrapped-phone[data-story="1"] {
+  background: #c5ff00;
+  color: #101010;
+}
+
+.wrapped-phone[data-story="2"] {
+  background: #ff315b;
+  color: #ffffff;
+}
+
+.wrapped-phone[data-story="3"] {
+  background: #8e6bff;
+  color: #ffffff;
+}
+
+/* SONG OF THE YEAR — STORY 04 */
+
+.wrapped-phone[data-story="4"] {
+  background: #080a10;
+  color: #fff;
+}
+
+.wrapped-phone[data-story="4"]::before {
+  background: #ffb342;
+  opacity: 0.16;
+  filter: blur(35px);
+}
+
+.wrapped-phone[data-story="4"]::after {
+  background: #192d47;
+  opacity: 0.5;
+}
+
+.wrapped-phone[data-story="4"] .wrapped-story {
+  justify-content: flex-start;
+  gap: 0;
+  padding: 22px;
+}
+
+.song-label {
+  margin-top: 24px;
+  color: #ffbd59;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  text-align: center;
+}
+
+.song-artwork {
+  width: 100%;
+  margin: auto 0;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: 0 16px 45px #0008;
+}
+
+.song-artwork img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.song-caption {
+  text-align: center;
+  margin-top: 22px;
+}
+
+.song-eyebrow {
+  color: #ffbd59;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+}
+
+.wrapped-phone[data-story="4"] .song-caption h2 {
+  margin: 10px 0;
+  font-size: clamp(27px, 6vw, 42px);
+  line-height: 0.95;
+  letter-spacing: -0.06em;
+}
+
+.song-caption p {
+  color: #c3c5d0;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+}
+
+.wrapped-phone[data-story="4"] .story-tap {
+  margin-top: auto;
+  padding-top: 20px;
+  text-align: center;
+  color: #b9bac5;
+}
+
+/* STORY 05 — ALBUM COVER OF THE YEAR */
+
+.wrapped-phone[data-story="5"] {
+  background: #080a10;
+  color: #fff;
+}
+
+.wrapped-phone[data-story="5"]::before {
+  background: #ffb342;
+  opacity: 0.12;
+  filter: blur(35px);
+}
+
+.wrapped-phone[data-story="5"]::after {
+  background: #192d47;
+  opacity: 0.45;
+}
+
+.wrapped-phone[data-story="5"] .wrapped-story {
+  justify-content: flex-start;
+  padding: 22px;
+  gap: 0;
+}
+
+.wrapped-phone[data-story="5"] .album-artwork {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  margin: auto 0;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 16px 45px #0008;
+}
+
+.wrapped-phone[data-story="5"] .album-artwork img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.wrapped-phone[data-story="5"] .song-caption {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.wrapped-phone[data-story="5"] .song-eyebrow {
+  color: #ffbd59;
+}
+
+.wrapped-phone[data-story="5"] .song-caption h2 {
+  margin: 10px 0;
+  font-size: clamp(24px, 5vw, 38px);
+  line-height: 0.95;
+  letter-spacing: -0.06em;
+}
+
+.wrapped-phone[data-story="5"] .song-caption p {
+  color: #c3c5d0;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.wrapped-phone[data-story="5"] .story-tap {
+  margin-top: auto;
+  padding-top: 18px;
+  text-align: center;
+  color: #b9bac5;
+}
+
+.wrapped-phone[data-story="6"] {
+  background: #ffb84d;
+  color: #101010;
+}
+
+@media (max-width: 760px) {
+  .wrapped-overlay {
+    padding: 78px 18px 20px;
+  }
+
+  .wrapped-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    width: 100%;
+  }
+
+  .wrapped-intro {
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .wrapped-intro h1 {
+    margin: 15px 0;
+    font-size: clamp(42px, 11vw, 70px);
+    line-height: 0.86;
+  }
+
+  .wrapped-intro p {
+    margin: 10px 0;
+    font-size: 13px;
+  }
+
+  .wrapped-start {
+    margin-top: 10px;
+  }
+
+  .wrapped-phone {
+    width: auto;
+    height: min(55svh, 540px);
+    max-height: none;
+    aspect-ratio: 9 / 16;
+  }
+
+  .wrapped-story {
+    padding: 23px 20px;
+  }
+
+  .wrapped-story h2 {
+    font-size: clamp(30px, 8vw, 44px);
+  }
+
+  .wrapped-story p {
+    font-size: 13px;
+  }
+
+  .wrapped-footer {
+    margin-top: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wrapped-overlay,
+  .wrapped-story,
+  .wrapped-phone::before {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+body.wrapped-open {
+  overflow: hidden;
+}
+
+/* STORY 06 — FINAL CAMPAIGN REVEAL */
+
+.wrapped-phone[data-story="6"] {
+  background: #ff3e91;
+  color: #080808;
+}
+
+.wrapped-phone[data-story="6"]::before,
+.wrapped-phone[data-story="6"]::after {
+  display: none;
+}
+
+.wrapped-phone[data-story="6"] .wrapped-story {
+  padding: 12px;
+  gap: 0;
+  justify-content: flex-start;
+  background: #ff3e91;
+}
+
+.wrapped-phone[data-story="6"] .story-number {
+  position: absolute;
+  top: 20px;
+  right: 18px;
+  z-index: 2;
+  color: #080808;
+}
+
+.final-artwork {
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.final-artwork img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.final-caption {
+  flex-shrink: 0;
+  padding: 12px 8px 4px;
+  text-align: center;
+}
+
+.final-eyebrow {
+  color: #080808;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+}
+
+.wrapped-phone[data-story="6"] .final-caption h2 {
+  margin: 10px 0;
+  color: #080808;
+  font-size: clamp(20px, 4vw, 30px);
+  line-height: 0.98;
+  letter-spacing: -0.06em;
+  font-weight: 1000;
+}
+
+.wrapped-phone[data-story="6"] .story-tap {
+  flex-shrink: 0;
+  padding: 14px 0 6px;
+  margin: 0;
+  text-align: center;
+  color: #080808;
+  font-size: 9px;
+  font-weight: 900;
+}

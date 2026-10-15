@@ -1,0 +1,369 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#080910" />
+    <meta
+      name="description"
+      content="Siddharth for Secretary General — MU20 Opportunity Summit 2026."
+    />
+
+    <title>Siddharth for Secretary General | MU20</title>
+
+    <link rel="stylesheet" href="{% static 'campaign/css/style.css' %}" />
+
+    <script src="{% static 'campaign/js/main.js' %}" defer></script>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+        }
+      }
+    </script>
+
+    <script type="module" src="{% static 'campaign/js/laptop.js' %}"></script>
+  </head>
+
+  <body>
+    <main class="landing" id="landing">
+      <section
+        class="hero"
+        id="hero"
+        aria-label="Siddharth's campaign introduction"
+      >
+        <div class="portrait-side" id="portrait-side">
+          <div class="portrait-glow" aria-hidden="true"></div>
+          <div class="portrait-ring ring-one" aria-hidden="true"></div>
+          <div class="portrait-ring ring-two" aria-hidden="true"></div>
+
+          <div class="portrait-photo" id="portrait-photo">
+            <img
+              src="{% static 'campaign/images/siddharth.png' %}"
+              alt="Siddharth Kodwani"
+              fetchpriority="high"
+            />
+          </div>
+
+          <div class="portrait-tag" id="portrait-tag">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span id="portrait-tag-text">THE NEXT CHAPTER</span>
+          </div>
+
+          <div class="portrait-index" id="portrait-index">01 / 03</div>
+
+          <div
+            class="reel-stage"
+            id="reel-stage"
+            role="region"
+            aria-label="Campaign reel"
+            aria-hidden="true"
+            inert
+          >
+            <div class="reel-frame" aria-hidden="true">
+              <span class="frame-corner corner-top-left"></span>
+              <span class="frame-corner corner-bottom-right"></span>
+            </div>
+
+            <div class="reel-content" id="reel-content">
+              <video
+                id="campaign-video"
+                preload="auto"
+                playsinline
+                aria-label="MU20 campaign reel"
+              >
+                <source src="{% url 'campaign_video' %}" type="video/mp4" />
+                Your browser does not support HTML video.
+              </video>
+
+              <button
+                type="button"
+                id="video-play-button"
+                class="video-play-button"
+                aria-label="Play campaign video"
+              >
+                <span class="video-play-icon" aria-hidden="true">▶</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-content" id="hero-content">
+          <h1 class="main-heading">
+            <span class="heading-line">Siddharth for</span>
+            <span class="heading-line gradient-text"> Secretary General. </span>
+          </h1>
+
+          <p class="main-subheading">MU20 Opportunity Summit 2026.</p>
+
+          <div class="key-area">
+            <button
+              type="button"
+              class="keyboard-key"
+              id="s-key"
+              aria-label="Press S to continue"
+              aria-expanded="false"
+              aria-controls="reel-stage"
+            >
+              <span class="key-letter" aria-hidden="true">S</span>
+              <span class="key-symbol" aria-hidden="true">↗</span>
+            </button>
+
+            <div class="key-message" aria-live="polite">
+              <p class="key-message-line">
+                Press <span class="accent-text">'S'</span> for
+                <strong>S.G.</strong>
+              </p>
+
+              <p class="key-message-line">
+                Press <span class="accent-text">'S'</span> for
+                <strong>Siddharth.</strong>
+              </p>
+            </div>
+
+            <p class="keyboard-hint">CLICK THE KEY OR PRESS <kbd>S</kbd></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- TIMELINE OVERLAY -->
+
+      <section
+        class="timeline-overlay"
+        id="timeline-overlay"
+        aria-label="Campaign editing timeline"
+        aria-hidden="true"
+        inert
+      >
+        <!-- Interactive hand hint -->
+        <img
+          id="timeline-hand-hint"
+          class="timeline-hand-hint"
+          src="{% static 'campaign/images/hand.png' %}"
+          alt=""
+          aria-hidden="true"
+        />
+
+        <div class="timeline-glass">
+          <header class="timeline-header">
+            <div class="timeline-heading-group">
+              <span class="timeline-status-dot" aria-hidden="true"></span>
+              <span>THE WORK BEHIND THE EDIT</span>
+            </div>
+
+            <span class="timeline-subtitle"> SECREATRIAT REVEAL (1/3) </span>
+          </header>
+
+          <div
+            class="timeline-scroll"
+            id="timeline-scroll"
+            tabindex="0"
+            aria-label="Scrollable editing timeline image"
+          >
+            <!-- The playhead is positioned relative to the image -->
+            <div class="timeline-canvas" id="timeline-canvas">
+              <img
+                class="timeline-image"
+                id="timeline-image"
+                src="{% static 'campaign/images/timeline.png' %}"
+                alt="The complete multitrack editing timeline for the campaign reel"
+                draggable="false"
+              />
+
+              <div
+                class="timeline-playhead"
+                id="timeline-playhead"
+                role="presentation"
+                aria-hidden="true"
+              >
+                <span class="playhead-cap"></span>
+              </div>
+            </div>
+          </div>
+
+          <footer class="timeline-footer">
+            <span>SIDDHARTH FOR SECRETARY GENERAL.</span>
+            <span>MU20 / 2026</span>
+          </footer>
+        </div>
+      </section>
+
+      <!-- Hackathon challenge prompt -->
+      <button
+        type="button"
+        class="hackathon-arrow-button"
+        id="hackathon-arrow-button"
+        aria-label="Explore the hackathon challenge"
+        aria-hidden="true"
+        tabindex="-1"
+      >
+        <span class="hackathon-down-arrow" aria-hidden="true">↓</span>
+      </button>
+
+      <!-- Next section: destination after clicking the arrow -->
+
+      <!-- Scroll-driven 3D laptop section -->
+
+      <section
+        class="next-section"
+        id="next-section"
+        aria-label="3D laptop experience"
+      >
+        <p class="scroll-hint" id="scroll-hint">keep scrolling</p>
+
+        <div class="laptop-stage">
+          <canvas id="laptop-canvas" aria-label="A rotating 3D laptop"></canvas>
+
+          <div class="laptop-info" id="laptop-info">
+            <h2>Proposed a structure for the Hackathon Challenge</h2>
+            <a
+              href="https://docs.google.com/document/d/1CtCKSHush7RqZfbn78tFwkiU-c8yp7_Rw8dJ0HGY6Qc/edit?usp=drivesdk"
+              target="_blank"
+              rel="noopener noreferrer"
+              >here's the link ↗</a
+            >
+          </div>
+
+          <div class="robot-info" id="robot-info">
+            <h2>Proposed and Structured the Robotics Challenge</h2>
+            <p><b>To be held at the BSAI Opportunity Summit 2026</b></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="showcase-section" id="showcase">
+        <div class="showcase-heading">
+          <span class="showcase-eyebrow">A CLOSER LOOK</span>
+          <h2>The work behind <span>the vision.</span></h2>
+          <p>From first drafts to bringing the Secretariat's story to life.</p>
+        </div>
+
+        <div class="showcase-grid">
+          <!-- Reel 1 -->
+          <article class="showcase-card">
+            <div class="showcase-video">
+              <video
+                controls
+                playsinline
+                preload="metadata"
+                poster="/static/campaign/images/reel-1.jpg"
+              >
+                <source
+                  src="/static/campaign/videos/reel-1.mp4"
+                  type="video/mp4"
+                />
+                Your browser does not support HTML video.
+              </video>
+            </div>
+
+            <div class="showcase-description">
+              <span class="showcase-number">01</span>
+              <h3>Conceptualized The first Sec Reel</h3>
+              <p>
+                Yessss :) I made the first draft for the very first sec reel for
+                this year's secretariat ❤️, clipped above.
+              </p>
+            </div>
+          </article>
+
+          <!-- Reel 2 -->
+          <article class="showcase-card">
+            <div class="showcase-video">
+              <video
+                controls
+                playsinline
+                preload="metadata"
+                poster="/static/campaign/images/reel-2.jpg"
+              >
+                <source
+                  src="/static/campaign/videos/reel-2.mp4"
+                  type="video/mp4"
+                />
+                Your browser does not support HTML video.
+              </video>
+            </div>
+
+            <div class="showcase-description">
+              <span class="showcase-number">02</span>
+              <h3>The MU20 Drive</h3>
+              <p>
+                Delievered the magic of the CESI department and the secretariat
+                to the world.✨
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <div
+        class="transition-overlay"
+        id="transition-overlay"
+        aria-hidden="true"
+      ></div>
+    </main>
+
+    <button
+      type="button"
+      class="horizontal-scroll-hint"
+      id="horizontal-scroll-hint"
+      aria-label="Open MU20 Wrapped 2026"
+      title="Open MU20 Wrapped 2026"
+    >
+      <span aria-hidden="true"></span>
+    </button>
+
+    <!-- MU20 WRAPPED 2026 -->
+    <section
+      id="mu20-wrapped"
+      class="wrapped-overlay"
+      aria-label="MU20 Wrapped 2026"
+      aria-hidden="true"
+      inert
+    >
+      <button
+        class="wrapped-close"
+        id="wrapped-close"
+        type="button"
+        aria-label="Close MU20 Wrapped"
+      >
+        ×
+      </button>
+
+      <div class="wrapped-layout">
+        <div class="wrapped-intro">
+          <span class="wrapped-kicker">THE YEAR THAT WAS</span>
+          <h1>MU20<br /><span>WRAPPED</span></h1>
+          <p>2026. One summit. Countless stories.</p>
+          <button id="wrapped-start" class="wrapped-start" type="button">
+            Relive the year <span>↗</span>
+          </button>
+        </div>
+
+        <div
+          class="wrapped-phone"
+          id="wrapped-phone"
+          role="button"
+          tabindex="0"
+          aria-label="Tap to advance to the next Wrapped story"
+        >
+          <div class="wrapped-progress" id="wrapped-progress"></div>
+          <div class="wrapped-story" id="wrapped-story">
+            <span class="story-number">01 / 06</span>
+            <span class="story-eyebrow">YOUR MU20 STORY</span>
+            <h2>Every great story starts with a vision.</h2>
+            <p>And 2026 was only the beginning.</p>
+            <span class="story-tap">TAP TO CONTINUE ↗</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="wrapped-footer">
+        <span>MU20 OPPORTUNITY SUMMIT</span>
+        <span>2026 ©</span>
+      </div>
+    </section>
+  </body>
+</html>
